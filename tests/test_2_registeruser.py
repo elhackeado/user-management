@@ -50,5 +50,5 @@ def test_registerusers_newuser(app, client):
      res = client.post("/users",
                 data=json.dumps(newdata),
                 headers={"Content-Type": "application/json"},)
-     expected = {"message":"new user registered sucessfully"}
+     expected = {"message":"new user registered successfully"}
      assert expected == json.loads(res.get_data(as_text=True))

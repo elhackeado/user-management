@@ -33,10 +33,26 @@ This API registers new user to the system. It takes `first name`, `last name`, `
  ```
 ***After successful execution of the above request you will get the following respone*** <br>
 
-**Sample Response** :
+**Sample Response Body** :
 ```json
   {
       "message":"new user registered sucessfully"
   }
 ```
 
+### 2. Get All Users
+This API gets all the users registered in the database. This API doesn't require any input.
+
+**Route** : `/users` <br>
+**Method Type** : `GET` <br>
+**Sample Request Body** : ***Not Needed***
+
+***After successful execution of the above request you will get the following respone*** <br>
+
+**Sample Response Body** :
+```json
+    {
+        "totalUsers": 18,
+        "users": "amansinghhh, amansin, amansi, amansiss, amansssi, amanssi, amanssiaaa, BeverlyFox, SherrySchaefer, BethanyNelson, JessicaTaylor, GinaHansen, RobertJenkins, ChristopherOchoa, AudreyAnderson, JamesMills, SaraRobertson, MistyPalmer"
+    }
+```
