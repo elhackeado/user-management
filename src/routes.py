@@ -42,7 +42,7 @@ def register():
             #add user to database
             addUser(user)
 
-            return jsonify({"message":"new user registered sucessfully"}),201
+            return jsonify({"message":"new user registered successfully"}),201
     #catch exception        
     except Exception:
         return jsonify({"message":"bad request"}),400
