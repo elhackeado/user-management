@@ -44,6 +44,7 @@ Following is the directory structure of the project.
                 |
                 ---------- app.py
                 ---------- config.env
+                ---------- how-to-use.txt
                 ---------- readenvvars.py
                 ---------- README.md
                 ---------- requirements.txt
@@ -86,6 +87,8 @@ APP_VERSION - current version of the application
 ```
 
 ***Note: `config.env` contains very sensitive information, please make sure you remove the sensitive information before sharing it on public repository.***
+### how-to-use.txt
+This file contains the information regarding the basic functionalities of the application and how to use APIs of this applications.
 
 ### readenvvars.py
 This python file reads and initializes the variables from the `config.env` file.
