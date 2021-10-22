@@ -12,6 +12,7 @@ To build a API backend for the user management system which can perform basic CR
 **Python Libraries** : configparser, flask, pymongo, json, datetime, pytest <br>
 **Database** : MongoDB v5.0.3 <br>
 
+
 ## Project Structure
 Following is the directory structure of the project.
 
@@ -118,7 +119,7 @@ This section will help you to setup basic infrastructure for the application and
 ### 5. Run Applicatoin
     Switch to main project directory and run the following command:
         `flask run`
-After successfull run it will show the similar output on the console as below:
+After successfull run it will show the below output on the console:
 ```
 Environment: production
 WARNING: This is a development server. Do not use it in a production deployment.
@@ -129,14 +130,25 @@ Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 
  Now your flask application is running on port 5000.
 
- NOTE: If there is any error then first make sure port 5000 is not in use already , in that case you can change to any other free port by chaning value of `APP_PORT` variable in `config.env` file.
+ NOTE: If there is any error then first make sure port 5000 is not in use already, in that case you can change to any other free port by changing value of `APP_PORT` variable in `config.env` file.
 
 
 
 ## API Overview
 A total of 7 APIs were developed to perform basic user management operations. <br>
+
+* #### Register User `/users` - POST    ***To add new user***
+* #### Get All Users `/users` - GET    ***To get list and count of all users***
+* #### Get User Details `/users/<username>` - GET    ***To get details of a single user***
+* #### Update User Details `/users/<username>` - PUT    ***To update details of a user***
+* #### Delete User `/users/<username>` - DELETE    ***To delete a user***
+* #### Activate User `/users/<username>/activate` - PATCH    ***To activate the user***
+* #### Deactivate User `/users/<username>/deactivate` - PATCH    ***To deactivate a user*** <br>
+
+Detailed description for each API is given below. This will give you a good idea what that particular API does and how you can use that API. <br>
+
 ### 1. Register New User
-This API registers new user to the system. It takes `first name`, `last name`, `username`, `password`, `pincode` as an input and adds the user to the database with respective details. Here username attribute is the primary key so before adding the new user the system checks that no user with same username exists in the database. If there is some user with the same username then it will not add new user to the system and respond with a already exists message.
+This API registers new user to the system. It takes `first name`, `last name`, `username`, `password`, `pincode` as an input and adds the user to the database with respective details. Here `username` attribute is the primary key so before adding the new user, the system checks that no user with same username exists in the database. If there is some user with the same username then it will not add new user to the system and returns a already exists message.
 
 **Route** : `/users` <br>
 **Method Type** : `POST` <br>
@@ -168,7 +180,7 @@ This API registers new user to the system. It takes `first name`, `last name`, `
 ```
 
 ### 2. Get All Users
-This API gets all the users registered in the database. This API doesn't require any input.
+This API gets total count of registered users and list of usernames of all users in the system. This API doesn't require any input.
 
 **Route** : `/users` <br>
 **Method Type** : `GET` <br>
@@ -185,7 +197,7 @@ This API gets all the users registered in the database. This API doesn't require
 ```
 
 ### 3. Get User Details
-This API gets details of a single user. This API takes username as a input in the URI which in turn gets the details of that user from the database. If the user with the given username doesn't exists the API responds with a user doesn't exists message.
+This API gets details of a single user. This API takes username as a input in the URI which in turn gets the details of that user from the database. If the user with the given username doesn't exists the API returns a user doesn't exists message.
 
 
 **Route** : `/users/<username>` <br>
@@ -214,7 +226,7 @@ This API gets details of a single user. This API takes username as a input in th
 ```
 
 ### 4. Update User Details
-This API updates details of a single user. This API takes username as a input in the URI and `fname`, `lname` and `pincode` in the request body. This API also checks existence of the username in the database before updating the details, If the user with the given username doesn't exists the API responds with a user doesn't exists message.
+This API updates details of a single user. This API takes `username` as a input in the URI and `fname`, `lname` and `pincode` in the request body. This API also checks existence of the username in the database before updating the details, If the user with the given username doesn't exists the API returns a user doesn't exists message.
 
 
 **Route** : `/users/<username>` <br>
@@ -244,7 +256,7 @@ This API updates details of a single user. This API takes username as a input in
 ```
 
 ### 5. Delete User
-This API deletes a single user from the database. This API takes username as a input in the URI. This API checks existence of the username in the database before deleting the user, If the user with the given username doesn't exists the API responds with a user doesn't exists message.
+This API deletes a single user from the database. This API takes `username` as an input in the URI. This API checks existence of the username in the database before deleting the user, If the user with the given username doesn't exists the API returns user doesn't exists message.
 
 
 **Route** : `/users/<username>` <br>
@@ -267,7 +279,7 @@ This API deletes a single user from the database. This API takes username as a i
 ```
 
 ### 6. Activate User
-By default, when any new user registers it is in deactivated mode until activated. So this particular API is used to activate the user by setting the user attribute `access=1` in the database. This API takes username as a input in the URI. This API checks existence of the username in the database before activating the user, If the user with the given username doesn't exists the API responds with a user doesn't exists message. Also if the user is already activated then it returns already activated message.
+By default, when any new user registers it is in deactivated mode until activated. So this particular API is used to activate the user by setting the user attribute `access=1` in the database. This API takes `username` as a input in the URI. This API checks existence of the username in the database before activating the user, If the user with the given username doesn't exists the API returns a user doesn't exists message. Also if the user is already activated then it returns already activated message.
 
 
 **Route** : `/users/<username>/activate` <br>
@@ -296,7 +308,7 @@ By default, when any new user registers it is in deactivated mode until activate
 ```
 
 ### 7. Deactivate User
-This API is used to deactivate the user by setting the user attribute `access=0` in the database. This API takes username as a input in the URI. This API checks existence of the username in the database before deactivating the user, If the user with the given username doesn't exists the API responds with a user doesn't exists message. Also if the user is already deactivated then it returns already deactivated message.
+This API is used to deactivate the user by setting the user attribute `access=0` in the database. This API takes `username` as an input in the URI. This API checks existence of the username in the database before deactivating the user, If the user with the given username doesn't exists the API returns user doesn't exists message. Also if the user is already deactivated then it returns already deactivated message.
 
 
 **Route** : `/users/<username>/deactivate` <br>
@@ -323,3 +335,30 @@ This API is used to deactivate the user by setting the user attribute `access=0`
         "message": "user already deactivated"
     }
 ```
+
+## Functionalities
+This section will give you a brief idea about the use and functionalities of the application.
+
+1. A user can register with user attributes like `first name`, `last name`, `username` etc.
+2. The application will check if the given username is available i.e. there should be no user with given username in the database.
+3. The application will register the user if the unique username is provided.
+4. By default user is in deactivated mode that means it can't login until it is activated by some Admin or email verification.
+5. Admin will activate the user.
+6. Now user can login using his registered credentials.
+7. A user or Admin can change the details of the user like `first name`, `last name`, `pincode`.
+8. A user can be deactivated by Admin.
+9. A user can be deleted by Admin.
+10. Admin can get list of all the users.
+11. Admin can get details of a user.
+
+***NOTE : Authentication/Authorization, Session Management, User activation by email verification and secured APIs is not yet implemented. So all the APIs can be accessed by anyone. These feature may come as the enhancements to the project in near future. Following section will give you more insight on why you would need these features.***
+
+## Enhancement
+This section will give of information about all the upcoming enhancements. Following is the list of few features that can be expected to be implemented in near future.
+1. `Secure APIs` - Currently all the APIs can be accessed by anyone, so there is need of role based access to make this application work properly.
+2. `Authentication/Authorization` - This feature is in accordance with the first feature since the APIs can only be secured if proper Authentication and Authorization is in place.
+3. `Logging` - This is one of the most important feature when you want to build any production grade application since logging helps a lot in troubleshooting the application in case any exception occurs.
+4. `Session Management` - This feature becomes important if you want to implement Login/Logout feature in your application. This can be implemented along with the AUTHORIZATION feature using the JWT tokens.
+5. `Automated User Activation` - The user activation can be automated by sending verification links to the registered user. This can be a great feature to make the application flow seamless and avoid the manual activation of the user.
+
+## End of File
