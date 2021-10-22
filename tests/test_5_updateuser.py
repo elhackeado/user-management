@@ -8,7 +8,7 @@ import json
 updateddata = {
     "fname": "flash",
     "lname": "cnet",
-    "pincode" : "900005"
+    "pincode" : 900005
     
 }
 

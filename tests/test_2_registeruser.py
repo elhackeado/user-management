@@ -10,7 +10,7 @@ data = {
     "lname":"Doe",
     "username":"jdoe",
     "password" : "rockingjdoe",
-    "pincode" : "144008"
+    "pincode" : 144008
     }
 
 newdata = {
@@ -18,7 +18,7 @@ newdata = {
     "lname": "Allen",
     "username": "ballen",
     "password" : "speeditup",
-    "pincode" : "740008"
+    "pincode" : 740008
     
 }
 
