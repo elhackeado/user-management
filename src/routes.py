@@ -110,7 +110,7 @@ def updateUser(username):
             lname = payload.get("lname")
             pincode = payload.get("pincode")
             # Make sure all input parameters are passed
-            if notEmptyString(fname) and notEmptyString(lname) and notEmptyString(pincode):
+            if notEmptyString(fname) and notEmptyString(lname) and notEmptyString(str(pincode)):
                 # update the existing user details with the new details
                 updateUserDetails(username,fname,lname,pincode)
                 return jsonify({"message":"details updated sucessfully"})
