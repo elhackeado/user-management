@@ -1,3 +1,5 @@
+# This is the main entrypoint of the flask application
+
 #import all endpoints from routes
 from src.routes import *
 

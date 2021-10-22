@@ -31,7 +31,7 @@ def test_registeruser_respcode(app, client):
     assert res.status_code == 201
 
 # tests if response content type is correct
-def test_registerusers_contenttype(app, client):
+def test_registeruser_contenttype(app, client):
     res = client.post("/users",
                 data=json.dumps(data),
                 headers={"Content-Type": "application/json"},)

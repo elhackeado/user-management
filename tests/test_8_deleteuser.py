@@ -5,7 +5,7 @@
 # importing json library to convert response data to json type
 import json
 
-# tests if correct response code and message is returned
+# tests if correct response code and message is returned after deleting the user
 def test_deleteuser_respcode(app, client):
     res = client.delete('/users/jdoe')
     assert res.status_code == 200
