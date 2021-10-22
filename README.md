@@ -236,7 +236,7 @@ This API updates details of a single user. This API takes `username` as a input 
     {
         "fname":"The",
         "lname":"Flash",
-        "pincode":"11111"
+        "pincode":11111
     }
 ```
 
