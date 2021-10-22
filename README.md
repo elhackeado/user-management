@@ -343,7 +343,7 @@ This API is used to deactivate the user by setting the user attribute `access=0`
     }
 ```
 
-## Functionalities
+## Application Functionalities
 This section will give you a brief idea about the use and functionalities of the application.
 
 1. A user can register with user attributes like `first name`, `last name`, `username` etc.
@@ -360,7 +360,7 @@ This section will give you a brief idea about the use and functionalities of the
 
 ***NOTE : Authentication/Authorization, Session Management, User activation by email verification and secured APIs is not yet implemented. So all the APIs can be accessed by anyone. These feature may come as the enhancements to the project in near future. Following section will give you more insight on why you would need these features.***
 
-## Enhancement
+## UpcomingEnhancements
 This section will give of information about all the upcoming enhancements. Following is the list of few features that can be expected to be implemented in near future.
 1. `Secure APIs` - Currently all the APIs can be accessed by anyone, so there is need of role based access to make this application work properly.
 2. `Authentication/Authorization` - This feature is in accordance with the first feature since the APIs can only be secured if proper Authentication and Authorization is in place.
