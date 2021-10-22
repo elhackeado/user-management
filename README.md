@@ -85,6 +85,8 @@ APP_PORT - port at which flask application will run
 APP_VERSION - current version of the application
 ```
 
+***Note: `config.env` contains very sensitive information, please make sure you remove the sensitive information before sharing it on public repository.***
+
 ### readenvvars.py
 This python file reads and initializes the variables from the `config.env` file.
 
