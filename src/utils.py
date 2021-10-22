@@ -14,6 +14,7 @@ def userExists(username):
     usermgmt = con['user-management']
     # query list of users with given username
     users = list(usermgmt.users.find({"username":username},{'_id':0}))
+    # close db connection
     con.close()
     if len(users)==0:
          return False
@@ -22,11 +23,13 @@ def userExists(username):
 
 # to add new user to database
 def addUser(user):
+    # get host db connection
     con = db().getConnection()
     # select the user database 
     usermgmt = con['user-management']
     # serialize user object and insert to database
     usermgmt.users.insert_one(toJSON(user))
+    # close db connection
     con.close()
 
 
@@ -54,6 +57,7 @@ def getAllUsers():
     # query list of users with given username
     users = list(usermgmt.users.find({},{'username':1,'_id':0}))
     users = [x['username'] for x in users]
+    # close db connection
     con.close()
     return {
         "totalUsers":len(users), 
@@ -69,6 +73,7 @@ def getUserDetails(username):
     usermgmt = con['user-management']
     # query the details for the user using username
     user = list(usermgmt.users.find({"username":username},{'_id':0,'password':0}))
+    # close db connection
     con.close()
     return user[0]
 
@@ -86,6 +91,7 @@ def updateUserDetails(username,fname,lname,pincode):
         'lname': lname,
         'pincode': pincode
         }})
+    # close db connection    
     con.close()
 
 
@@ -97,6 +103,7 @@ def deleteUser(username):
     usermgmt = con['user-management']
     # delete the user from database with the given username
     usermgmt.users.delete_one({'username':username})
+    # close db connection
     con.close()
 
 
@@ -111,6 +118,7 @@ def activateUser(username):
     {"$set":{
         'access': 1
         }})
+    # close db connection    
     con.close()
 
 
@@ -134,4 +142,5 @@ def deactivateUser(username):
     {"$set":{
         'access': 0
         }})
+    # close db connection    
     con.close()

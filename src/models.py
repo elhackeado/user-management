@@ -1,4 +1,8 @@
+# This file contains the db and User model classes.
+
+# to get connection to the database
 from pymongo import MongoClient
+# Reading Database configuration attributes 
 from readenvvars import DB_HOST,DB_PASSWORD,DB_PORT,DB_USERNAME
 
 

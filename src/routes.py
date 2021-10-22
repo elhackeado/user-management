@@ -1,6 +1,6 @@
 # This file contains the logic for all the API and routes.
 
-
+# Reading application variable configured in config.env file
 from src.init import APP_VERSION
 from src.models import User
 from src.utils import userExists, addUser, getAllUsers, getUserDetails, updateUserDetails, deleteUser, activateUser, activated, deactivateUser
@@ -28,6 +28,7 @@ def register():
     try:
         payload = request.get_json()
         username = payload.get("username")
+        #Make sure user doesn't already exists in the system
         if not userExists(username):
             user = User(
                 fname= payload.get("fname"),
@@ -35,9 +36,9 @@ def register():
                 username = payload.get("username"),
                 password = payload.get("password"),
                 pincode = payload.get("pincode"),
-                access = 0,
-                role = 0,
-                timestamp = datetime.now()
+                access = 0, # keeping user deactivated by default
+                role = 0,   # this variable can be used in case of Authorization of resources/APIs
+                timestamp = datetime.now() # Registration date and time
             )
             #add user to database
             addUser(user)
@@ -45,7 +46,7 @@ def register():
             return jsonify({"message":"new user registered successfully"}),201
     #catch exception        
     except Exception:
-        return jsonify({"message":"bad request"}),400
+        return jsonify({"message":"bad requet"}),400
 
 
     return jsonify({"message":"user already exists"})
