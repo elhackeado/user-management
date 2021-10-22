@@ -3,7 +3,8 @@
 # Reading application variable configured in config.env file
 from src.init import APP_VERSION
 from src.models import User
-from src.utils import userExists, addUser, getAllUsers, getUserDetails, updateUserDetails, deleteUser, activateUser, activated, deactivateUser, notEmptyString
+from src.utils import userExists, addUser, getAllUsers, getUserDetails, updateUserDetails, deleteUser, activateUser, activated, deactivateUser
+from src.validations import notEmptyString
 from flask import Flask, request, jsonify
 from datetime import datetime
 api = Flask(__name__)

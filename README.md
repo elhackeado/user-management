@@ -26,6 +26,7 @@ Following is the directory structure of the project.
                 |         --------- models.py
                 |         --------- routes.py
                 |         --------- utils.py
+                |         --------- validations.py
                 |
                 --------- tests
                 |         |
@@ -53,6 +54,7 @@ Following is the directory structure of the project.
            2. models.py - contains User and db model class <br>
            3. routes.py - contains the actual routing and API logics <br>
            4. utils.py - contains helper functions and database query functions <br>
+           5. validations.py - contains functions for data validations <br>
 
 ### tests <br>
   This directory contains the unit test cases for the api server. <br>

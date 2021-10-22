@@ -145,10 +145,3 @@ def deactivateUser(username):
     # close db connection    
     con.close()
 
-# check if string is empty or null
-def notEmptyString(str):
-    if str==None:
-        return False
-    if  len(str.strip())==0:
-        return False
-    return True
