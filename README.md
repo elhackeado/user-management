@@ -155,7 +155,7 @@ A total of 7 APIs were developed to perform basic user management operations. <b
 Detailed description for each API is given below. This will give you a good idea what that particular API does and how you can use that API. <br>
 
 ### 1. Register New User
-This API registers new user to the system. It takes `first name`, `last name`, `username`, `password`, `pincode` as an input and adds the user to the database with respective details. Here `username` attribute is the primary key so before adding the new user, the system checks that no user with same username exists in the database. If there is some user with the same username then it will not add new user to the system and returns a already exists message.
+This API registers new user to the system. It takes `first name`, `last name`, `username`, `password`, `pincode` as an input and adds the user to the database with respective details. Here `username` attribute is the primary key so before adding the new user, the system checks that no user with same username exists in the database. If there is some user with the same username then it will not add new user to the system and returns a already exists message. Also the password hashing is implemented to avoid keeping `password` in plaint-text format. 
 
 **Route** : `/users` <br>
 **Method Type** : `POST` <br>
@@ -367,7 +367,7 @@ This section will give of information about all the upcoming enhancements. Follo
 3. `Logging` - This is one of the most important feature when you want to build any production grade application since logging helps a lot in troubleshooting the application in case any exception occurs.
 4. `Session Management` - This feature becomes important if you want to implement Login/Logout feature in your application. This can be implemented along with the AUTHORIZATION feature using the JWT tokens.
 5. `Automated User Activation` - The user activation can be automated by sending verification links to the registered user. This can be a great feature to make the application flow seamless and avoid the manual activation of the user.
-6. `Hashing the Passwords and Other Personal Information` - Currently all the user information is saved in the plain text format in database but to align with Data Privacy policy its always recommended to save personal in hash/encoded format.
+6. `Hashing the Passwords and Other Personal Information` ***[PASSWORD HASHING IMPLEMENTED]***- Currently all the user information is saved in the plain text format in database but to align with Data Privacy policy its always recommended to save personal in hash/encoded format.
 7. `Data Validation` - Currently only one level of data validation is done i.e simple empty or null value checker, further level of validation can be included such as data type validations, string length validations, password policy validation and more.
 
 ## End of File

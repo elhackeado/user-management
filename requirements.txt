@@ -4,3 +4,6 @@ pymongo
 json
 datetime
 pytest
+hashlib
+os
+binascii

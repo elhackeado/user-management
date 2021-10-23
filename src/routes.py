@@ -4,7 +4,7 @@
 from src.init import APP_VERSION
 from src.models import User
 from src.utils import userExists, addUser, getAllUsers, getUserDetails, updateUserDetails, deleteUser, activateUser, activated, deactivateUser
-from src.validations import notEmptyString
+from src.validations import notEmptyString, hashPassword
 from flask import Flask, request, jsonify
 from datetime import datetime
 api = Flask(__name__)
@@ -45,7 +45,8 @@ def register():
                         fname= fname,
                         lname= lname,
                         username = username,
-                        password = password,
+                        # hash plain-text password
+                        password = hashPassword(password),
                         pincode = pincode,
                         access = 0, # keeping user deactivated by default
                         role = 0,   # this variable can be used in case of Authorization of resources/APIs
