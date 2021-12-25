@@ -3,4 +3,3 @@ flask
 pymongo
 datetime
 pytest
-binascii
