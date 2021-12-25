@@ -3,6 +3,4 @@ flask
 pymongo
 datetime
 pytest
-hashlib
-os
 binascii
